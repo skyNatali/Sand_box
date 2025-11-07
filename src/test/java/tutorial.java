@@ -15,6 +15,6 @@ public class tutorial {
         browser.findElement(By.xpath("//input[@value='Login']")).click();
         boolean registerBtnPresent = browser.findElement(By.xpath("//span[@data-test='title']")).isDisplayed();
         assertTrue(registerBtnPresent);
-        //browser.quit();
+        browser.quit();
     }
 }
