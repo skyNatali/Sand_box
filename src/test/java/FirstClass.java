@@ -7,15 +7,6 @@ import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
 public class FirstClass {
-    import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.testng.annotations.Test;
-
-import static java.lang.Thread.*;
-import static org.testng.Assert.*;
-
-    public class FirstClass {
 
         @Test
         public void zipCode() {
@@ -25,7 +16,7 @@ import static org.testng.Assert.*;
             browser.findElement(By.xpath("//input[@value='Continue']")).click();
             boolean registerBtnPresent = browser.findElement(By.xpath("//input[@value='Register']")).isDisplayed();
             assertTrue(registerBtnPresent);
-            browser.quit();
+            //browser.quit();
         }
 
         @Test
@@ -41,4 +32,3 @@ import static org.testng.Assert.*;
         }
     }
 
-}
