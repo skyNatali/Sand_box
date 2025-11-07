@@ -12,7 +12,7 @@ public class tutorial {
         browser.get("https://www.saucedemo.com/");
         browser.findElement(By.xpath("//input[@data-test='username']")).sendKeys("standard_user");
         browser.findElement(By.xpath("//input[@data-test='password']")).sendKeys("secret_sauce");
-        //browser.findElement(By.xpath("//input[@value='login']")).click();
+        browser.findElement(By.xpath("//input[@value='Login']")).click();
         //browser.quit();
     }
 }
