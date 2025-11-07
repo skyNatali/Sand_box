@@ -11,9 +11,8 @@ public class tutorial {
         WebDriver browser = new EdgeDriver();
         browser.get("https://www.saucedemo.com/");
         browser.findElement(By.xpath("//input[@data-test='username']")).sendKeys("standard_user");
-        browser.findElement(By.xpath("//input[@data-test='password']")).sendKeys("standard_user");
-        browser.findElement(By.xpath("//input[@value='login']")).click();
-
+        browser.findElement(By.xpath("//input[@data-test='password']")).sendKeys("secret_sauce");
+        //browser.findElement(By.xpath("//input[@value='login']")).click();
         //browser.quit();
     }
 }
