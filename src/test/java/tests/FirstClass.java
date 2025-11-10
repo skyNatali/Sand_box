@@ -16,9 +16,9 @@ public class FirstClass extends BaseTest {
     }
 
     @Test
-    public void zipDigitCode() {
+    public void negativ() {
         loginPage.open();
-        loginPage.login("standard_user", "secret_sauce");
+        loginPage.login("locked_out_user", "secret_sauce");
         assertEquals(loginPage.checkErrorMsg(), "Epic sadface: Sorry, this user has been locked out.");
     }
 }
