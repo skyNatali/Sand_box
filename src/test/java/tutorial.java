@@ -36,4 +36,3 @@ public class tutorial {
         browser.quit();
     }
 }
-
