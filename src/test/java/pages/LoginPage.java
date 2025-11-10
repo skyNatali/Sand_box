@@ -12,6 +12,7 @@ public class LoginPage {
 
     private static final By USERNAME = By.xpath("//input[@data-test='username']");
     private static final By PASSWORD = By.xpath("//input[@data-test='password']");
+    private static final By LOGIN = By.xpath("//input[@value='Login']");
 
     public LoginPage(WebDriver browser) {
         this.browser = browser;
@@ -24,7 +25,8 @@ public class LoginPage {
 
     public void login(String zipCode) {
         browser.findElement(USERNAME).sendKeys(zipCode);
-        browser.findElement(PASSWORD).click();
+        browser.findElement(PASSWORD).sendKeys(zipCode);
+        browser.findElement(LOGIN).click();
     }
 
     public String checkErrorMsg() {
