@@ -23,9 +23,9 @@ public class LoginPage {
         browser.get("https://www.saucedemo.com/");
     }
 
-    public void login(String zipCode) {
-        browser.findElement(USERNAME).sendKeys(zipCode);
-        browser.findElement(PASSWORD).sendKeys(zipCode);
+    public void login(String positive) {
+        browser.findElement(USERNAME).sendKeys(positive);
+        browser.findElement(PASSWORD).sendKeys(positive);
         browser.findElement(LOGIN).click();
     }
 
