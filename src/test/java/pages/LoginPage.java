@@ -10,8 +10,8 @@ import java.time.Duration;
 public class LoginPage {
     WebDriver browser;
 
-    private static final By USERNAME = By.xpath("//input[@id='user-name']");
-    private static final By PASSWORD = By.xpath("//input[@value='Continue']");
+    private static final By USERNAME = By.xpath("//input[@data-test='username']");
+    private static final By PASSWORD = By.xpath("//input[@data-test='password']");
 
     public LoginPage(WebDriver browser) {
         this.browser = browser;
@@ -19,7 +19,7 @@ public class LoginPage {
     }
 
     public void open() {
-        browser.get("https://www.sharelane.com/cgi-bin/register.py");
+        browser.get("https://www.saucedemo.com/");
     }
 
     public void login(String zipCode) {
@@ -28,8 +28,8 @@ public class LoginPage {
     }
 
     public String checkErrorMsg() {
-        WebDriverWait wait = new WebDriverWait(browser, Duration.ofSeconds(3));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".error_message")));
-        return browser.findElement(By.cssSelector(".error_message")).getText();
+        WebDriverWait wait = new WebDriverWait(browser, Duration.ofSeconds(8));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".error-message-container.error")));
+        return browser.findElement(By.cssSelector(".error-message-container.error")).getText();
     }
 }
