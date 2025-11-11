@@ -35,4 +35,3 @@ public class LoginPage {
         return browser.findElement(By.cssSelector(".error-message-container.error")).getText();
     }
 }
-

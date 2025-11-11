@@ -22,4 +22,3 @@ public class FirstClass extends BaseTest {
         assertEquals(loginPage.checkErrorMsg(), "Epic sadface: Sorry, this user has been locked out.");
     }
 }
-
