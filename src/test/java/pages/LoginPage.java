@@ -10,9 +10,9 @@ import java.time.Duration;
 public class LoginPage {
     WebDriver browser;
 
-    private static final By USERNAME = By.xpath("//input[@data-test='username']");
-    private static final By PASSWORD = By.xpath("//input[@data-test='password']");
-    private static final By LOGIN = By.xpath("//input[@value='Login']");
+    private By loginInput = By.xpath("//input[@data-test='username']");
+    private By passInput = By.xpath("//input[@data-test='password']");
+    private By loginBtn = By.xpath("//input[@value='Login']");
 
     public LoginPage(WebDriver browser) {
         this.browser = browser;
@@ -23,10 +23,10 @@ public class LoginPage {
         browser.get("https://www.saucedemo.com/");
     }
 
-    public void login(String username, String password) {
-        browser.findElement(USERNAME).sendKeys(username);
-        browser.findElement(PASSWORD).sendKeys(password);
-        browser.findElement(LOGIN).click();
+    public void login(String loginName, String password) {
+        browser.findElement(loginInput).sendKeys(loginName);
+        browser.findElement(passInput).sendKeys(password);
+        browser.findElement(loginBtn).click();
     }
 
     public String checkErrorMsg() {
