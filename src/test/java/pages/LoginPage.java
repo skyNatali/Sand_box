@@ -10,9 +10,10 @@ import java.time.Duration;
 public class LoginPage {
     WebDriver browser;
 
-    private final By loginInput = By.xpath("//input[@data-test='username']");
-    private final By passInput = By.xpath("//input[@data-test='password']");
-    private final By loginBtn = By.xpath("//input[@value='Login']");
+    private By loginInput = By.xpath("//input[@data-test='username']");
+    private By passInput = By.xpath("//input[@data-test='password']");
+    private By loginBtn = By.xpath("//input[@value='Login']");
+    private By errorMsg = By.xpath("//h3[@data-test='error']");
 
     public LoginPage(WebDriver browser) {
         this.browser = browser;
@@ -31,7 +32,7 @@ public class LoginPage {
 
     public String checkErrorMsg() {
         WebDriverWait wait = new WebDriverWait(browser, Duration.ofSeconds(8));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".error-message-container.error")));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(errorMsg));
         return browser.findElement(By.cssSelector(".error-message-container.error")).getText();
     }
 }

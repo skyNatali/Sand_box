@@ -8,7 +8,7 @@ import static org.testng.Assert.*;
 public class FirstClass extends BaseTest {
 
     @Test
-    public void positive() {
+    public void correctLogin() {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
         boolean registerBtnPresent = browser.findElement(By.xpath("//span[@data-test='title']")).isDisplayed();
@@ -16,7 +16,7 @@ public class FirstClass extends BaseTest {
     }
 
     @Test
-    public void negativ() {
+    public void incorrectLogin() {
         loginPage.open();
         loginPage.login("locked_out_user", "secret_sauce");
         assertEquals(loginPage.checkErrorMsg(), "Epic sadface: Sorry, this user has been locked out.");
