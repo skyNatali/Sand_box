@@ -3,15 +3,19 @@ package tests;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import pages.LoginPage;
+import pages.*;
 
 import java.time.Duration;
 
 public class BaseTest {
-    public WebDriver browser;
+    private static final Logger log = LoggerFactory.getLogger(BaseTest.class);
+    public WebDriver driver;
     LoginPage loginPage;
+    ProductsPage productsPage;
 
     @BeforeMethod
     public void setUp() {
@@ -19,15 +23,14 @@ public class BaseTest {
         options.addArguments("start-maximized");
         options.addArguments("--guest");
 
-        browser = new EdgeDriver(options);
-        //options.addArguments("headless");
-        //options.addArguments("window-size=1920, 1080");
-        browser.manage().timeouts().implicitlyWait(Duration.ofSeconds(8));
-        loginPage = new LoginPage(browser);
+        driver = new EdgeDriver(options);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(8));
+        loginPage = new LoginPage();
+        productsPage = new ProductsPage(driver);
     }
 
     @AfterMethod
     public void close() {
-        browser.quit();
+        driver.quit();
     }
 }

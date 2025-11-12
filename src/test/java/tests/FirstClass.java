@@ -11,8 +11,8 @@ public class FirstClass extends BaseTest {
     public void correctLogin() {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
-        boolean registerBtnPresent = browser.findElement(By.xpath("//span[@data-test='title']")).isDisplayed();
-        assertTrue(registerBtnPresent);
+        assertTrue(productsPage.getTitle());
+        assertEquals(productsPage.getTitleText(), "Products");
     }
 
     @Test
