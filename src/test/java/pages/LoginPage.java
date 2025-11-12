@@ -10,9 +10,9 @@ import java.time.Duration;
 public class LoginPage {
     WebDriver browser;
 
-    private By loginInput = By.xpath("//input[@data-test='username']");
-    private By passInput = By.xpath("//input[@data-test='password']");
-    private By loginBtn = By.xpath("//input[@value='Login']");
+    private final By loginInput = By.xpath("//input[@data-test='username']");
+    private final By passInput = By.xpath("//input[@data-test='password']");
+    private final By loginBtn = By.xpath("//input[@value='Login']");
 
     public LoginPage(WebDriver browser) {
         this.browser = browser;
