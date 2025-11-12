@@ -1,7 +1,6 @@
 package pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class LoginPage extends BasePage {
@@ -15,25 +14,25 @@ public class LoginPage extends BasePage {
         driver.get(BASE_URL);
     }
 
-    public void fillInLogin(String loginName, String password) {
+    public void login(String loginName, String password) {
         fillInLogin(loginName);
         fillPassword(password);
-        pressLoginBtn();
+        pressLoginBtn();}
 
-        public void login(String loginName) {
-    driver.findElement(loginInput).sendKeys(loginName);
-    }
+        public void fillInLogin (String loginName){
+            driver.findElement(loginInput).sendKeys(loginName);
+        }
 
-    public void fillPassword(String password) {
-        driver.findElement(passInput).sendKeys(password);
-    }
+        public void fillPassword (String password){
+            driver.findElement(passInput).sendKeys(password);
+        }
 
-    public void pressLoginBtn() {
-        driver.findElement(loginBtn).click();
-    }
+        public void pressLoginBtn () {
+            driver.findElement(loginBtn).click();
+        }
 
-    public String checkErrorMsg() {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(errorMsg));
-        return driver.findElement(errorMsg).getText();
+        public String checkErrorMsg () {
+            wait.until(ExpectedConditions.visibilityOfElementLocated(errorMsg));
+            return driver.findElement(errorMsg).getText();
+        }
     }
-}
