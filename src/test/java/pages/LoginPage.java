@@ -33,6 +33,6 @@ public class LoginPage {
     public String checkErrorMsg() {
         WebDriverWait wait = new WebDriverWait(browser, Duration.ofSeconds(8));
         wait.until(ExpectedConditions.visibilityOfElementLocated(errorMsg));
-        return browser.findElement(By.cssSelector(".error-message-container.error")).getText();
+        return browser.findElement(errorMsg).getText();
     }
 }
