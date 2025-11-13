@@ -1,6 +1,7 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class LoginPage extends BasePage {
@@ -9,6 +10,10 @@ public class LoginPage extends BasePage {
     private By passInput = By.xpath("//input[@data-test='password']");
     private By loginBtn = By.xpath("//input[@value='Login']");
     private By errorMsg = By.xpath("//h3[@data-test='error']");
+
+    public LoginPage(WebDriver driver) {
+        super(driver);
+    }
 
     public void open() {
         driver.get(BASE_URL);

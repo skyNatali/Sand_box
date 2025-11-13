@@ -25,7 +25,7 @@ public class BaseTest {
 
         driver = new EdgeDriver(options);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(8));
-        loginPage = new LoginPage();
+        loginPage = new LoginPage(driver);
         productsPage = new ProductsPage(driver);
     }
 
