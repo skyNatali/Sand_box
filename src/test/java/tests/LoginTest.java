@@ -1,5 +1,6 @@
 package tests;
 
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.*;
@@ -14,25 +15,20 @@ public class LoginTest extends BaseTest {
         assertEquals(productsPage.getTitleText(), "Products");
     }
 
-    @Test
-    public void incorrectLogin() {
-        loginPage.open();
-        loginPage.login("locked_out_user", "secret_sauce");
-        assertEquals(loginPage.checkErrorMsg(), "Epic sadface: Sorry, this user has been locked out.");
+    @DataProvider()
+    public Object[] loginData() {
+        return new Object[][] {
+                {"locked_out_user", "secret_sauce", "Epic sadface: Sorry, this user has been locked out."},
+                {"", "secret_sauce", "Epic sadface: Username is required"},
+                {"standard_user", "", "Epic sadface: Password is required"}
+        };
     }
 
-    @Test
-    public void emptyLogin() {
+    @Test(dataProvider = "loginData")
+    public void incorrectLogin(String user, String password, String errorMessage) {
         loginPage.open();
-        loginPage.login(" ", "secret_sauce");
-        assertEquals(loginPage.checkErrorMsg(), "Epic sadface: Username is required");
-    }
-
-    @Test
-    public void emptyPassword() {
-        loginPage.open();
-        loginPage.login("standard_user", " ");
-        assertEquals(loginPage.checkErrorMsg(), "Epic sadface: Password is required");
+        loginPage.login(user, password);
+        assertEquals(loginPage.checkErrorMsg(), errorMessage);
     }
 
     @Test
