@@ -11,7 +11,7 @@ public class ProductsPage extends BasePage {
         super(driver);
     }
 
-    public boolean getTitle() {
+    public boolean isPageOpen() {
         return driver.findElement(title).isDisplayed();
     }
 
@@ -22,5 +22,10 @@ public class ProductsPage extends BasePage {
     public void addToCart(final String goodsName) {
         By addToCart = By.xpath(ADD_TO_CART.formatted( goodsName));
         driver.findElement(addToCart).click();
+    }
+
+    public void addToCart(final int index) {
+        By addToCart = By.xpath("//*[text() = 'Add to cart']");
+        driver.findElements(addToCart).get(index).click();
     }
 }
