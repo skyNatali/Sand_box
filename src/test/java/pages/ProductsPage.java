@@ -28,4 +28,9 @@ public class ProductsPage extends BasePage {
         By addToCart = By.xpath("//*[text() = 'Add to cart']");
         driver.findElements(addToCart).get(index).click();
     }
+
+    public void switchToCart(final int index) {
+        By cartLink = By.cssSelector("[data-test='shopping-cart-link']");
+        driver.findElement(cartLink).click();
+    }
 }
