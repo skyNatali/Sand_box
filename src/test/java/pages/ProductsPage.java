@@ -29,7 +29,7 @@ public class ProductsPage extends BasePage {
         driver.findElements(addToCart).get(index).click();
     }
 
-    public void switchToCart(final int index) {
+    public void switchToCart() {
         By cartLink = By.cssSelector("[data-test='shopping-cart-link']");
         driver.findElement(cartLink).click();
     }
