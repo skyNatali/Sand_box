@@ -3,6 +3,7 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import user.User;
 
 public class LoginPage extends BasePage {
 
@@ -19,9 +20,9 @@ public class LoginPage extends BasePage {
         driver.get(BASE_URL);
     }
 
-    public void login(String loginName, String password) {
-        fillInLogin(loginName);
-        fillPassword(password);
+    public void login(User user) {
+        fillInLogin(user.getEmail());
+        fillPassword(user.getPassword());
         pressLoginBtn();}
 
         public void fillInLogin (String loginName){

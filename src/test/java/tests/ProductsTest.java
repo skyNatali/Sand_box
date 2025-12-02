@@ -3,13 +3,14 @@ package tests;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.*;
+import static user.UserFactory.withAdminPermission;
 
 public class ProductsTest extends BaseTest {
 
     @Test
     public void correctLogin() {
         loginPage.open();
-        loginPage.login("standard_user", "secret_sauce");
+        loginPage.login(withAdminPermission());
         productsPage.isPageOpen();
         productsPage.addToCart(0);
         productsPage.addToCart("Test.allTheThings() T-Shirt (Red)");
