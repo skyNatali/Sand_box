@@ -12,4 +12,15 @@ public class UserFactory {
             return new User(PropertyReader.getProperty("saucedemo.locked_user"),
                     PropertyReader.getProperty("saucedemo.password"));
         }
+
+        public static User withEmptyUsername() {
+            return new User("", PropertyReader.getProperty("saucedemo.password"));
+    }
+
+        public static User withEmptyPassword() {
+            return new User(
+                    PropertyReader.getProperty("saucedemo.user"), // standard_user
+                    "" // пустой пароль
+            );
+    }
 }

@@ -17,12 +17,12 @@ public class LoginTest extends BaseTest {
         assertEquals(productsPage.getTitleText(), "Products");
     }
 
-    @DataProvider()
+    @DataProvider(name = "loginData")
     public Object[] loginData() {
         return new Object[][] {
                 {UserFactory.withLockedUserPermission(), "Epic sadface: Sorry, this user has been locked out."},
-                {"", "secret_sauce", "Epic sadface: Username is required"},
-                {"standard_user", "", "Epic sadface: Password is required"}
+                {UserFactory.withEmptyUsername(), "Epic sadface: Username is required"},
+                {UserFactory.withEmptyPassword(), "Epic sadface: Password is required"}
         };
     }
 
@@ -36,8 +36,8 @@ public class LoginTest extends BaseTest {
     @Test
     public void checkGoodsAdded() {
         loginPage.open();
-        loginPage.login(UserFactory.withLockedUserPermission());
+        loginPage.login(UserFactory.withAdminPermission());
         productsPage.addToCart("Sauce Labs Bike Light");
-        //assertEquals(loginPage.checkErrorMsg(), "Epic sadface: Sorry, this user has been locked out.");
+//        assertEquals(loginPage.checkErrorMsg(), "Epic sadface: Sorry, this user has been locked out.");
     }
 }
