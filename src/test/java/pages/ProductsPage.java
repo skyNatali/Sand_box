@@ -20,7 +20,7 @@ public class ProductsPage extends BasePage {
     }
 
     public void addToCart(final String goodsName) {
-        By addToCart = By.xpath(ADD_TO_CART.formatted( goodsName));
+        By addToCart = By.xpath(ADD_TO_CART.formatted(goodsName));
         driver.findElement(addToCart).click();
     }
 
